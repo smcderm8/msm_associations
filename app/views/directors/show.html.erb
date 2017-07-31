@@ -20,7 +20,7 @@
         </dd>
         
       
-      <% @list = Movie.where({ :director_id => @director.id }) %>
+      <% @list = @director.movies %>
   
       <dt>Movie Count</dt>
       <dd><%= @list.count %></dd> 

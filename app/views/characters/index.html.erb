@@ -17,9 +17,9 @@
 
       <% @characters.each do |character| %>
       <tr>
-        <% @movie = Movie.find_by({ :id => character.movie_id }) %>
+        <% @movie = character.movie %>
         <td><%= @movie.title %></td>
-        <% @actor = Actor.find_by({ :id => character.actor_id }) %>
+        <% @actor = character.actor %>
         <td><%= @actor.name %></td>
         <td><%= character.name %></td>
         <td>

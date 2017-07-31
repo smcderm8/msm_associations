@@ -27,11 +27,11 @@
         <%= @director.name %>
         </dd>
         
-      <% @list = Character.where({ :movie_id => @movie.id }) %>
+      <% @list = @movie.characters %>
       
       <dt>Cast</dt>
       <% @list.each do |character| %>
-      <% @actor = Actor.find_by({ :id => character.actor_id}) %>
+      <% @actor = character.actor %>
         <dd><%= @actor.name %></dd>
       <% end %>
       

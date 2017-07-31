@@ -19,14 +19,14 @@
       <dd><%= @actor.bio %></dd>
       
       
-      <% @characters = Character.where({ :actor_id => @actor.id }) %>
+      <% @characters = @actor.characters %>
   
       <dt>Character Count</dt>
       <dd><%= @characters.count %></dd> 
       
       <dt>Filmography</dt>
       <% @characters.each do |character| %>
-      <% @movie = Movie.find_by({ :id => character.movie_id }) %>
+      <% @movie = character.movie %>
         <dd><%= @movie.title %></dd>
       <% end %>
 
