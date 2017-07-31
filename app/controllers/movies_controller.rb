@@ -8,7 +8,7 @@ class MoviesController < ApplicationController
   def show
     @movie = Movie.find(params[:id])
     
-    @director = Director.find_by({ :id => @movie.director_id })
+    @director = @movie.director
 
     render("movies/show.html.erb")
   end

@@ -54,6 +54,15 @@
         <input type="hidden" id="movie_id" name="movie_id" placeholder="Movie" class="form-control" value="<%= @movie.id %>">
         
       </div>
+      
+      <!-- Label and input for name -->
+      <div class="form-group">
+        <label for="name" class="control-label">
+          Name
+        </label>
+
+        <input type="text" id="name" name="name" placeholder="Name" class="form-control">
+      </div>
 
       <!-- Label and input for actor_id -->
       <div class="form-group">
@@ -68,20 +77,9 @@
         </p>
       </div>
 
-      <!-- Label and input for name -->
-      <div class="form-group">
-        <label for="name" class="control-label">
-          Name
-        </label>
-
-        <input type="text" id="name" name="name" placeholder="Name" class="form-control">
-      </div>
-
       <button class="btn btn-success">
         Create Character
       </button>
-      or
-      <a href="/characters">Cancel</a>
     </form>
   </div>
 </div>
