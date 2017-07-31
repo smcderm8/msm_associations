@@ -35,6 +35,6 @@ class Movie < ApplicationRecord
     
     has_many :characters, :class_name => "Character", :foreign_key => "movie_id"
     
-    has many :actors, :through => :characters
+    hasmany :actors, :through => :characters
 
 end
