@@ -17,7 +17,62 @@
 
       <dt>Bio</dt>
       <dd><%= @actor.bio %></dd>
+      
+      
+      <% @character_list = Character.where({ :actor_id => @actor.id }) %>
+  
+      <dt>Character Count</dt>
+      <dd><%= @character_list.count %></dd> 
+      
+      <dt>Filmography</dt>
+      <% @character_list.each do |character| %>
+      <% @movie = Movie.find_by({ :id => character.movie_id }) %>
+        <dd><%= @movie.title %></dd>
+      <% end %>
 
+        
+      <div class="row">
+        <h4>Add New Movie For <%= @actor.name %></h4>
+      </div>
+      
+      <div class="row">
+  <div class="col-md-12">
+    <form action="/create_character" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for movie_id -->
+      <div class="form-group">
+        <label for="movie_id" class="control-label">
+          Movie
+        </label>
+
+        <input type="text" id="movie_id" name="movie_id" placeholder="Movie" class="form-control">
+      </div>
+
+      <!-- Label and input for actor_id -->
+      <div class="form-group">
+        <!--<label for="actor_id" class="control-label">-->
+        <!--  Actor-->
+        <!--</label>-->
+
+        <input type="hidden" id="actor_id" name="actor_id" placeholder="Actor" class="form-control" value="<%= @actor.name %>">
+      </div>
+
+      <!-- Label and input for name -->
+      <div class="form-group">
+        <label for="name" class="control-label">
+          Name
+        </label>
+
+        <input type="text" id="name" name="name" placeholder="Name" class="form-control">
+      </div>
+
+      <button class="btn btn-success">
+        Create Character
+      </button>
+    </form>
+  
     </dl>
 
     <div class="btn-group btn-group-justified">
