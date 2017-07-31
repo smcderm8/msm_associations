@@ -19,13 +19,13 @@
       <dd><%= @actor.bio %></dd>
       
       
-      <% @character_list = Character.where({ :actor_id => @actor.id }) %>
+      <% @characters = Character.where({ :actor_id => @actor.id }) %>
   
       <dt>Character Count</dt>
-      <dd><%= @character_list.count %></dd> 
+      <dd><%= @characters.count %></dd> 
       
       <dt>Filmography</dt>
-      <% @character_list.each do |character| %>
+      <% @characters.each do |character| %>
       <% @movie = Movie.find_by({ :id => character.movie_id }) %>
         <dd><%= @movie.title %></dd>
       <% end %>
@@ -56,7 +56,7 @@
         <!--  Actor-->
         <!--</label>-->
 
-        <input type="hidden" id="actor_id" name="actor_id" placeholder="Actor" class="form-control" value="<%= @actor.name %>">
+        <input type="hidden" id="actor_id" name="actor_id" placeholder="Actor" class="form-control" value="<%= @actor.id %>">
       </div>
 
       <!-- Label and input for name -->
